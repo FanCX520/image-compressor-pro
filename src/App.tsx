@@ -59,13 +59,18 @@ function App() {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+        <div 
+            className="min-h-screen motion-deliberate"
+            style={{
+                background: 'var(--bg-gradient-primary)',
+            }}
+        >
             <div className="container mx-auto px-4 py-8 mb-10">
                 <Header />
 
-                <main className="max-w-6xl mx-auto space-y-8">
+                <main className="max-w-6xl mx-auto space-y-8 motion-moderate">
                     {/* Upload Section */}
-                    <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-8">
+                    <div className="glass-card motion-quick" style={{ borderRadius: 'var(--radius-xl)', padding: 'var(--space-8)' }}>
                         <ImageUploader
                             onImageUpload={handleImageUpload}
                             isCompressing={isCompressing}
@@ -75,9 +80,9 @@ function App() {
 
                     {/* Settings and Processing */}
                     {originalImage && (
-                        <div className="grid lg:grid-cols-2 gap-8">
+                        <div className="grid lg:grid-cols-2 gap-8 motion-moderate">
                             {/* Compression Settings */}
-                            <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-6">
+                            <div className="glass-card motion-quick" style={{ borderRadius: 'var(--radius-large)', padding: 'var(--space-6)' }}>
                                 <CompressionSettings
                                     originalImage={originalImage}
                                     config={compressionConfig}
@@ -91,7 +96,7 @@ function App() {
                             </div>
 
                             {/* Results */}
-                            <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-6">
+                            <div className="glass-card motion-quick" style={{ borderRadius: 'var(--radius-large)', padding: 'var(--space-6)' }}>
                                 <CompressionResult
                                     compressedData={compressedData}
                                     isCompressing={isCompressing}
